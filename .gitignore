@@ -1,0 +1,36 @@
+# --- Segurança (CRÍTICO) ---
+# Jamais suba chaves de API ou senhas
+.env
+.env.local
+.env.*
+
+# --- Python ---
+# Arquivos compilados que o Python gera automaticamente (lixo)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Ambiente Virtual ---
+# Não subimos a pasta venv. Quem baixar o projeto cria a sua própria.
+venv/
+env/
+.venv/
+
+# --- Banco de Dados Vetorial (ChromaDB) ---
+# O banco local é pesado e binário. É melhor o código recriar ele ao rodar.
+db_chroma/
+chroma_db/
+
+# --- Logs e Arquivos de Sistema ---
+*.log
+.DS_Store
+Thumbs.db
+
+# --- Configurações de IDE (Opcional, mas recomendado) ---
+.vscode/
+.idea/
+
+# --- Node.js (Se tiver sobrado da sua limpeza anterior) ---
+node_modules/
+npm-debug.log
