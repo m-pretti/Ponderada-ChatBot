@@ -32,9 +32,9 @@ O sistema opera em três camadas de inteligência:
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/seu-repo.git](https://github.com/m-pretti/Ponderada-ChatBot.git)
-   cd Ponderada-ChatBot
-````
+   git clone https://github.com/m-pretti/Ponderada-ChatBot.git
+
+    ````
 
 2.  **Crie e ative o ambiente virtual:**
 
@@ -49,14 +49,6 @@ O sistema opera em três camadas de inteligência:
     ```bash
     pip install -r requirements.txt
     ```
-
-4.  **Configure as Chaves de API:**
-
-      * Crie um arquivo `.env` na raiz do projeto.
-      * Adicione sua chave da Groq:
-        ```env
-        GROQ_API_KEY=sua_chave_aqui_gsk_...
-        ```
 
 -----
 
