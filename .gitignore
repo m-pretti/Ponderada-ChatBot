@@ -34,3 +34,5 @@ Thumbs.db
 # --- Node.js (Se tiver sobrado da sua limpeza anterior) ---
 node_modules/
 npm-debug.log
+
+db_emails/
