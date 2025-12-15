@@ -95,10 +95,8 @@ python etapa03.py
 Para acessar o Painel de Controle completo (Dashboard):
 
 ```bash
-streamlit run app.py
+streamlit run chat.py
 ```
-
-O navegador abrirá automaticamente em `http://192.168.100.112:8501`.
 
 **Navegação na Interface:**
 
