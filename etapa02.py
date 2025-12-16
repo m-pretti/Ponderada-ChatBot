@@ -24,22 +24,20 @@ def realizar_investigacao():
     with open(ARQUIVO_EMAILS, "r", encoding="utf-8") as f:
         texto_emails = f.read()
 
-    # Divisão: O seu arquivo usa uma linha de traços como separador
-    # Vamos usar isso para garantir que cada e-mail seja um documento separado
+ 
     text_splitter = CharacterTextSplitter(
         separator="-------------------------------------------------------------------------------",
-        chunk_size=1500,  # Tamanho seguro para pegar um email inteiro
+        chunk_size=1500,  
         chunk_overlap=0
     )
     documentos = text_splitter.create_documents([texto_emails])
     print(f"📄 E-mails processados: {len(documentos)}")
 
-    # 2. Criar Embeddings (O "Cérebro" da busca)
+    # 2. Criar Embeddings 
     print("🧠 Criando conexões neurais (Indexando e-mails)...")
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-    # 3. Armazenar no Banco Vetorial (Persistente)
-    # Se a pasta já existir, ele carrega; se não, ele cria.
+    # 3. Armazenar no Banco Vetorial 
     if os.path.exists(DIRETORIO_DB):
         print("💾 Carregando banco de e-mails existente...")
         vectorstore = Chroma(persist_directory=DIRETORIO_DB, embedding_function=embeddings)
@@ -51,8 +49,7 @@ def realizar_investigacao():
             persist_directory=DIRETORIO_DB
         )
 
-    # 4. Configurar o Detetive (LLM)
-    # Usando o modelo Llama 3.1 atualizado
+    # 4. Configurar a LLM
     chat_model = ChatGroq(model_name="llama-3.1-8b-instant")
 
     # Prompt focado em investigação e citação de provas
@@ -73,12 +70,12 @@ def realizar_investigacao():
     prompt = ChatPromptTemplate.from_template(template_investigacao)
     chain = prompt | chat_model
 
-    # 5. A Investigação (O Toby quer saber se o Michael está armando contra ele)
+    # 5. A Investigação
     pergunta_investigacao = "O Michael Scott está conspirando contra o Toby Flenderson? Existem planos de demissão, armadilhas ou operações secretas mencionadas?"
 
     print(f"\n🔍 Buscando respostas para: '{pergunta_investigacao}'")
     
-    # Busca os 4 e-mails mais incriminadores
+    # Busca os 4 e-mails mais suspeitos
     docs_relacionados = vectorstore.similarity_search(pergunta_investigacao, k=4)
     contexto = "\n\n".join([doc.page_content for doc in docs_relacionados])
 

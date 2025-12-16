@@ -1,11 +1,11 @@
 import os
 from dotenv import load_dotenv
 
-# Importações LangChain + Groq + HuggingFace (Tudo grátis)
+# Importações LangChain + Groq + HuggingFace
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings  # Embeddings locais
-from langchain_groq import ChatGroq  # LLM Grátis
+from langchain_huggingface import HuggingFaceEmbeddings  
+from langchain_groq import ChatGroq  
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
@@ -40,8 +40,7 @@ def carregar_e_indexar():
     
     print(f"📄 Documento dividido em {len(splits)} pedaços.")
 
-    # 3. Vetorizar (Localmente - Sem custo)
-    # Isso baixa um modelo pequeno para seu PC na primeira vez
+    # 3. Vetorizar 
     print("🧠 Criando conexões neurais (Embeddings)...")
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     
@@ -53,7 +52,6 @@ def carregar_e_indexar():
     return vectorstore
 
 def configurar_chat(vectorstore):
-    # Usando Llama3 via Groq (Rápido e Gratuito)
     llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0)
 
     retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
