@@ -1,4 +1,4 @@
-# 👔 Toby AI - Sistema Inteligente de Compliance (Dunder Mifflin)
+# Toby AI - Sistema Inteligente de Compliance (Dunder Mifflin)
 
 > *"Por que você é do jeito que é?" - Michael Scott para Toby*
 
@@ -6,7 +6,7 @@ Este projeto é um **Agente de IA para Auditoria e Compliance** desenvolvido par
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 O sistema opera em três camadas de inteligência:
 
@@ -16,7 +16,7 @@ O sistema opera em três camadas de inteligência:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **Python 3.12**
 * **LangChain** (Orquestração de LLMs e RAG)
@@ -28,7 +28,7 @@ O sistema opera em três camadas de inteligência:
 
 ---
 
-## ⚙️ Pré-requisitos e Instalação
+## Pré-requisitos e Instalação
 
 1. **Clone o repositório:**
    ```bash
@@ -52,11 +52,11 @@ O sistema opera em três camadas de inteligência:
 
 -----
 
-## ▶️ Como Executar o Projeto
+## Como Executar o Projeto
 
 O sistema funciona em etapas. É **obrigatório** rodar as etapas 1 e 2 pelo menos uma vez para criar os bancos de dados vetoriais antes de usar a interface.
 
-### 1️⃣ Inicialização dos Bancos de Dados (Backend)
+### 1️. Inicialização dos Bancos de Dados (Backend)
 
 Rode os scripts abaixo para processar os arquivos de texto e criar a memória da IA (pastas `db_chroma` e `db_emails`).
 
@@ -78,7 +78,7 @@ python etapa02.py
 
 -----
 
-### 2️⃣ Auditoria via Terminal (Demo Rápida)
+### 2️. Auditoria via Terminal (Demo Rápida)
 
 Para ver o Agente Auditor trabalhar em tempo real no terminal, filtrando suspeitas do Michael Scott:
 
@@ -90,7 +90,7 @@ python etapa03.py
 
 -----
 
-### 3️⃣ Interface Visual (Streamlit)
+### 3️. Interface Visual (Streamlit)
 
 Para acessar o Painel de Controle completo (Dashboard):
 
@@ -109,10 +109,12 @@ streamlit run chat.py
 
 -----
 
-## 🕵️‍♂️ Exemplos de Detecção
+## Exemplos de Detecção
 
 O sistema é capaz de detectar casos complexos como:
 
   * **Smurfing:** Michael Scott dividindo despesas para evitar aprovação da matriz.
   * **Lavagem de Categoria:** Compra de itens pessoais (Walkie-Talkies) categorizados como "Segurança".
   * **Conluio:** Identificação de e-mails onde funcionários combinam fraudes financeiras.
+
+[Vídeo](https://drive.google.com/drive/folders/10RFOzYTEpyOLkPt3LPXMd5U9PqxlA0Jw?usp=sharing)
